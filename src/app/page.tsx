@@ -1,95 +1,117 @@
-import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
-
+import Slider from "./components/Slider";
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+      <Header />
+      <main>
+        <section
+          className={`${styles.section} ${styles.sectionAboutUs}`}
+          id="sectionAboutUs"
+        >
+          <span className={styles.title}>Welcome to Our Modern Oasis</span>
+          <h1>Discover the Power of Minimalism</h1>
+          <p className={styles.desc}>
+            Immerse Yourself in our Responsive, One-Page Wonder - Crafted to
+            Elevate Your Online Presence and Captivate Your Audience
+          </p>
+          <Button>Узнать больше</Button>
+        </section>
+        <section
+          className={`${styles.section} ${styles.sectionCases}`}
+          id="sectionCases"
+        >
+          <div className={styles.textWrapper}>
+            <span className={styles.title}>Our Passion, Your Vision</span>
+            <h2>Портфолио</h2>
+            <p className={styles.text}>
+              At the Forefront of Digital Innovation, We Seamlessly Blend
+              Cutting-Edge Design, Responsive Development, and Strategic
+              Insights to Elevate Your Online Presence. Unlock the Power of a
+              Visually Stunning, User-Centric Website that Captivates and
+              Converts
+            </p>
+            <Button>Discover more</Button>
+          </div>
+          <div className={styles.slider}>
+            <Slider />
+          </div>
+        </section>
+        <section
+          className={`${styles.section} ${styles.sectionStat}`}
+          id="sectionStat"
+        >
+          <div className={styles.stat}></div>
+          <div className={styles.textWrapper}>
+            <span className={styles.title}>
+              Более 2623748 довольных клиентов
+            </span>
+            <h2>Отчёт о выполненных проектах</h2>
+            <p className={styles.text}>
+              At the Forefront of Digital Innovation, We Seamlessly Blend
+              Cutting-Edge Design, Responsive Development, and Strategic
+              Insights to Elevate Your Online Presence. Unlock the Power of a
+              Visually Stunning, User-Centric Website that Captivates and
+              Converts
+            </p>
+            <Button>Discover more</Button>
+          </div>
+        </section>
+        <section
+          className={`${styles.section} ${styles.sectionTeam}`}
+          id="sectionTeam"
+        ></section>
+        <section
+          className={`${styles.section} ${styles.sectionServices}`}
+          id="sectionServices"
+        ></section>
+        <section
+          className={`${styles.section} ${styles.sectionContacts}`}
+          id="sectionContacts"
+        ></section>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
+
+const Header = () => {
+  return (
+    <header className={styles.header}>
+      <Link href="/" className={styles.logo}>
+        logo
+      </Link>
+      <nav className={styles.nav}>
+        <ul>
+          <li>
+            <a href="#sectionAboutUs">О нас</a>
+          </li>
+          <li>
+            <a href="#sectionCases">Портфолио</a>
+          </li>
+          <li>
+            <a href="#sectionStat">Статистика</a>
+          </li>
+          <li>
+            <a href="#sectionTeam">Команда</a>
+          </li>
+          <li>
+            <a href="#sectionServices">Услуги</a>
+          </li>
+          <li>
+            <a href="#sectionContacts">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
+
+const Footer = () => {
+  return <footer className={styles.footer}></footer>;
+};
+
+const Button = ({ children }: { children: string }) => {
+  return <div className={styles.button}>{children}</div>;
+};
